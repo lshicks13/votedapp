@@ -76,8 +76,8 @@ App = {
         var candidatesResults = $("#candidatesResults");
         candidatesResults.empty();
   
-        /*var candidatesSelect = $('#candidatesSelect');
-        candidatesSelect.empty();*/
+        var candidatesSelect = $('#candidatesSelect');
+        candidatesSelect.empty();
   
         for (var i = 1; i <= candidatesCount; i++) {
           electionInstance.candidates(i).then(function(candidate) {
@@ -90,22 +90,22 @@ App = {
             candidatesResults.append(candidateTemplate);
   
             // Render candidate ballot option
-            /*var candidateOption = "<option value='" + id + "' >" + name + "</ option>"
-            candidatesSelect.append(candidateOption);*/
+            var candidateOption = "<option value='" + id + "' >" + name + "</ option>"
+            candidatesSelect.append(candidateOption);
           });
         }
-        /*return electionInstance.voters(App.account);
+        return electionInstance.voters(App.account);
       }).then(function(hasVoted) {
         // Do not allow a user to vote
         if(hasVoted) {
           $('form').hide();
-        }*/
+        }
         loader.hide();
         content.show();
       }).catch(function(error) {
         console.warn(error);
       });
-    /*},
+    },
   
     castVote: function() {
       var candidateId = $('#candidatesSelect').val();
@@ -117,7 +117,7 @@ App = {
         $("#loader").show();
       }).catch(function(err) {
         console.error(err);
-      });*/
+      });
     }
   };
   
