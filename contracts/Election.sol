@@ -15,6 +15,10 @@ contract Election{
     //Keep track of vote counts
     uint public candidatesCount;
 
+    // voted event
+    event votedEvent(
+        uint indexed _candidateId
+    );
 
     //Constructor
     constructor() public {
@@ -36,6 +40,7 @@ contract Election{
         voters[msg.sender] = true;
         //Update candidate vote count
         candidates[_candidateId].voteCount ++;
-
+        //trigger voted event
+        emit votedEvent(_candidateId);
     }
 }
